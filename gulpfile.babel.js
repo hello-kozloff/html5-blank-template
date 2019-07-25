@@ -10,11 +10,11 @@ import contact from "gulp-concat";
 
 gulp.task("build-pages", function () {
   return gulp.src("src/pages/**/*.pug")
-  .pipe(pug({
-    pretty: true,
-    cache: false
-  }))
-  .pipe(gulp.dest("static"))
+    .pipe(pug({
+      pretty: true,
+      cache: false
+    }))
+    .pipe(gulp.dest("static"))
 });
 
 /**
@@ -56,7 +56,7 @@ gulp.task("create", function () {
  */
 gulp.task("build:blocks-style", () => {
   return gulp.src("src/blocks/**/*.sass")
-  .pipe(sass().on("error", sass.logError))
-  .pipe(contact("blocks.css"))
-  .pipe(gulp.dest("static/css"))
+    .pipe(sass().on("error", sass.logError))
+    .pipe(contact("blocks.css"))
+    .pipe(gulp.dest("static/css"))
 });
