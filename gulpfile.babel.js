@@ -149,3 +149,25 @@ gulp.task("build:vendors-script", () => {
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("static/js"))
 });
+
+/**
+ * This task build bundle style
+ */
+gulp.task("bundle:style", () => {
+  const cleanCssSettings = {
+    level: {
+      1: { specialComments: 0 }
+    }
+  };
+
+  return gulp.src([
+    "static/css/vendor.css",
+    "static/css/styles.css"
+  ])
+    .pipe(contact("bundle.css"))
+    .pipe(gulp.dest("static/css"))
+    .pipe(autoprefixer(["last 15 versions"]))
+    .pipe(cleanCss(cleanCssSettings))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulp.dest("static/css"))
+});
