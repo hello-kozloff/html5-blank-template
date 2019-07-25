@@ -13,6 +13,9 @@ import autoprefixer from "gulp-autoprefixer";
 import babel from "gulp-babel";
 import uglify from "gulp-uglify";
 
+/**
+ * This task build pug pages
+ */
 gulp.task("build-pages", function () {
   return gulp.src("src/pages/*.pug")
     .pipe(pug({
