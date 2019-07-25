@@ -5,6 +5,8 @@ const fs = require("fs");
 
 import gulp from "gulp";
 import pug from "gulp-pug";
+import sass from "gulp-sass";
+import contact from "gulp-concat";
 
 gulp.task("build-pages", function () {
   return gulp.src("src/pages/**/*.pug")
@@ -52,4 +54,14 @@ gulp.task("create", function () {
     if (error) throw error;
   });
 
+});
+
+/**
+ * This task build blocks style
+ */
+gulp.task("build:blocks-style", () => {
+  return gulp.src("src/blocks/**/*.sass")
+  .pipe(sass().on("error", sass.logError))
+  .pipe(contact("blocks.css"))
+  .pipe(gulp.dest("static/css"))
 });
