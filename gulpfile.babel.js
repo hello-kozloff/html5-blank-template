@@ -10,6 +10,8 @@ import contact from "gulp-concat";
 import rename from "gulp-rename";
 import cleanCss from "gulp-clean-css";
 import autoprefixer from "gulp-autoprefixer";
+import babel from "gulp-babel";
+import uglify from "gulp-uglify";
 
 gulp.task("build-pages", function () {
   return gulp.src("src/pages/**/*.pug")
@@ -94,4 +96,18 @@ gulp.task("build:site-style", () => {
     .pipe(cleanCss(cleanCssSettings))
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("static/css"))
+});
+
+/**
+ * This task build blocks scripts
+ */
+gulp.task("build:blocks-script", () => {
+  const babelSettings = {
+    presets: ["@babel/preset-env"]
+  };
+
+  return gulp.src("src/blocks/**/*.js")
+    .pipe(babel(babelSettings))
+    .pipe(contact("blocks.js"))
+    .pipe(gulp.dest("static/js"))
 });
