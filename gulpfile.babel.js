@@ -110,6 +110,9 @@ gulp.task("build:blocks-script", () => {
     .pipe(babel(babelSettings))
     .pipe(contact("blocks.js"))
     .pipe(gulp.dest("static/js"))
+    .pipe(uglify())
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulp.dest("static/js"))
 });
 
 /**
