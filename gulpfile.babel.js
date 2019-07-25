@@ -15,6 +15,10 @@ gulp.task("build-pages", function () {
   .pipe(gulp.dest("static"))
 });
 
+/**
+ * This task create block (https://ru.bem.info)
+ * Example: gulp task --block my-block
+ */
 gulp.task("create", function () {
   const blockName = args.block;
 
@@ -24,13 +28,22 @@ gulp.task("create", function () {
 
   const fileTypes = [
     "sass",
-    "pug"
+    "pug",
+    "js"
   ];
 
   fs.mkdirSync(`src/blocks/${blockName}`);
 
   fileTypes.forEach(file => {
-    fs.writeFile(`src/blocks/${blockName}/${blockName}.${file}`, `.${blockName}`, (error) => {
+    let content = '';
+
+    if (file === 'sass' || file === 'pug') {
+      content = `.${blockName}`;
+    } else if (file === 'js') {
+      content = `$(document).ready(() => { /* ${blockName} */ });`;
+    }
+
+    fs.writeFile(`src/blocks/${blockName}/${blockName}.${file}`, content, (error) => {
       if (error) throw error;
     });
   });
