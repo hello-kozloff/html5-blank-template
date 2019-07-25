@@ -5,5 +5,8 @@
   "main": "gulpfile.babel.js",
   "repository": "git@github.com:hello-kozloff/html5-blank-template.git",
   "author": "hello-kozloff <hello.kozloff@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  }
 }
