@@ -14,8 +14,9 @@ import babel from "gulp-babel";
 import uglify from "gulp-uglify";
 
 gulp.task("build-pages", function () {
-  return gulp.src("src/pages/**/*.pug")
+  return gulp.src("src/pages/*.pug")
     .pipe(pug({
+      basedir: __dirname,
       pretty: true,
       cache: false
     }))
