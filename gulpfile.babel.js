@@ -111,3 +111,17 @@ gulp.task("build:blocks-script", () => {
     .pipe(contact("blocks.js"))
     .pipe(gulp.dest("static/js"))
 });
+
+/**
+ * This task build vendors script
+ */
+gulp.task("build:vendors-script", () => {
+  return gulp.src([
+    "node_modules/jquery/dist/jquery.js"
+  ])
+    .pipe(contact("vendor.js"))
+    .pipe(gulp.dest("static/js"))
+    .pipe(uglify())
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulp.dest("static/js"))
+});
