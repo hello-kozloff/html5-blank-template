@@ -7,6 +7,9 @@ import gulp from "gulp";
 import pug from "gulp-pug";
 import sass from "gulp-sass";
 import contact from "gulp-concat";
+import rename from "gulp-rename";
+import cleanCss from "gulp-clean-css";
+import autoprefixer from "gulp-autoprefixer";
 
 gulp.task("build-pages", function () {
   return gulp.src("src/pages/**/*.pug")
@@ -67,6 +70,28 @@ gulp.task("build:blocks-style", () => {
 gulp.task("build:main-style", () => {
   return gulp.src("src/sass/main.sass")
     .pipe(sass().on("error", sass.logError))
+    .pipe(contact("main.css"))
+    .pipe(gulp.dest("static/css"))
+});
+
+/**
+ * This task build site styles
+ */
+gulp.task("build:site-style", () => {
+  const cleanCssSettings = {
+    level: {
+      1: { specialComments: 0 }
+    }
+  };
+
+  return gulp.src([
+    "static/css/main.css",
+    "static/css/blocks.css"
+  ])
     .pipe(contact("styles.css"))
+    .pipe(gulp.dest("static/css"))
+    .pipe(autoprefixer(["last 15 versions"]))
+    .pipe(cleanCss(cleanCssSettings))
+    .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("static/css"))
 });
