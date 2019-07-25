@@ -11,7 +11,9 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/register": "^7.5.5",
     "babel-loader": "^8.0.6",
+    "fs": "^0.0.1-security",
     "gulp": "^4.0.2",
-    "gulp-pug": "^4.0.1"
+    "gulp-pug": "^4.0.1",
+    "yargs": "^13.3.0"
   }
 }
