@@ -77,6 +77,27 @@ gulp.task("build:main-style", () => {
 });
 
 /**
+ * This task build vendor style
+ */
+gulp.task("build:vendor-style", () => {
+  const cleanCssSettings = {
+    level: {
+      1: { specialComments: 0 }
+    }
+  };
+
+  return gulp.src([
+    "node_modules/normalize.css/normalize.css"
+  ])
+    .pipe(contact("vendor.css"))
+    .pipe(gulp.dest("static/css"))
+    .pipe(autoprefixer(["last 15 versions"]))
+    .pipe(cleanCss(cleanCssSettings))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulp.dest("static/css"))
+});
+
+/**
  * This task build site styles
  */
 gulp.task("build:site-style", () => {
