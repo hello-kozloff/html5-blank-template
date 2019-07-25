@@ -49,11 +49,6 @@ gulp.task("create", function () {
       if (error) throw error;
     });
   });
-
-  fs.appendFileSync("src/blocks/autoload.sass", `\n@import "${blockName}/${blockName}"`, (error) => {
-    if (error) throw error;
-  });
-
 });
 
 /**
