@@ -171,3 +171,18 @@ gulp.task("bundle:style", () => {
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("static/css"))
 });
+
+/**
+ * This task build bundle script
+ */
+gulp.task("bundle:script", () => {
+  return gulp.src([
+    "static/js/vendor.js",
+    "static/js/blocks.js"
+  ])
+    .pipe(contact("bundle.js"))
+    .pipe(gulp.dest("static/js"))
+    .pipe(uglify())
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulp.dest("static/js"))
+});
