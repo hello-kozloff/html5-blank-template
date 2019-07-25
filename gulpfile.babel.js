@@ -60,3 +60,13 @@ gulp.task("build:blocks-style", () => {
     .pipe(contact("blocks.css"))
     .pipe(gulp.dest("static/css"))
 });
+
+/**
+ * This task build main style
+ */
+gulp.task("build:main-style", () => {
+  return gulp.src("src/sass/main.sass")
+    .pipe(sass().on("error", sass.logError))
+    .pipe(contact("styles.css"))
+    .pipe(gulp.dest("static/css"))
+});
