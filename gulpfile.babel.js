@@ -37,7 +37,7 @@ gulp.task("create", function () {
   fileTypes.forEach(file => {
     let content = '';
 
-    if (file === 'sass' || file === 'pug') {
+    if (file === "sass" || file === "pug") {
       content = `.${blockName}`;
     } else if (file === 'js') {
       content = `$(document).ready(() => { /* ${blockName} */ });`;
