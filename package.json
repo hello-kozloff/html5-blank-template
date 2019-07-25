@@ -1,0 +1,9 @@
+{
+  "name": "html5-blank-template",
+  "version": "1.0.0",
+  "description": "Blank template for professional layout!",
+  "main": "gulpfile.babel.js",
+  "repository": "git@github.com:hello-kozloff/html5-blank-template.git",
+  "author": "hello-kozloff <hello.kozloff@gmail.com>",
+  "license": "MIT"
+}
