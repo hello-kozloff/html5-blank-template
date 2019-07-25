@@ -60,9 +60,19 @@ gulp.task("create", function () {
  * This task build blocks style
  */
 gulp.task("build:blocks-style", () => {
+  const cleanCssSettings = {
+    level: {
+      1: { specialComments: 0 }
+    }
+  };
+
   return gulp.src("src/blocks/**/*.sass")
     .pipe(sass().on("error", sass.logError))
     .pipe(contact("blocks.css"))
+    .pipe(gulp.dest("static/css"))
+    .pipe(autoprefixer(["last 15 versions"]))
+    .pipe(cleanCss(cleanCssSettings))
+    .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("static/css"))
 });
 
@@ -70,9 +80,19 @@ gulp.task("build:blocks-style", () => {
  * This task build main style
  */
 gulp.task("build:main-style", () => {
+  const cleanCssSettings = {
+    level: {
+      1: { specialComments: 0 }
+    }
+  };
+
   return gulp.src("src/sass/main.sass")
     .pipe(sass().on("error", sass.logError))
     .pipe(contact("main.css"))
+    .pipe(gulp.dest("static/css"))
+    .pipe(autoprefixer(["last 15 versions"]))
+    .pipe(cleanCss(cleanCssSettings))
+    .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("static/css"))
 });
 
