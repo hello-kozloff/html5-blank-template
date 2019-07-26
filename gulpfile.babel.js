@@ -13,6 +13,20 @@ import autoprefixer from "gulp-autoprefixer";
 import babel from "gulp-babel";
 import uglify from "gulp-uglify";
 
+const buildingStyles = [
+  "build:blocks-style",
+  "build:main-style",
+  "build:vendor-style",
+  "build:site-style",
+  "bundle:style"
+];
+
+const buildingScripts = [
+  "build:blocks-script",
+  "build:vendors-script",
+  "bundle:script"
+];
+
 /**
  * This task build pug pages
  */
@@ -210,3 +224,16 @@ gulp.task("bundle:script", () => {
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("static/js"))
 });
+
+/**
+ * This task watch in files
+ */
+gulp.task("watch", () => {
+  gulp.watch("src/blocks/**/*.js", gulp.series(buildingScripts));
+  gulp.watch("src/blocks/**/*.sass", gulp.series(buildingStyles));
+  gulp.watch("src/blocks/**/*.pug", gulp.series("build-pages"));
+  gulp.watch("src/sass/**/*.sass", gulp.series(buildingStyles));
+  gulp.watch("src/pages/**/*.pug", gulp.series("build-pages"));
+});
+
+gulp.task("default", gulp.series("build-pages", ...buildingStyles, ...buildingScripts, "watch"));
