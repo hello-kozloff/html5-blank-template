@@ -6,6 +6,18 @@
   "repository": "git@github.com:hello-kozloff/html5-blank-template.git",
   "author": "hello-kozloff <hello.kozloff@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "gulp",
+    "build:pages": "gulp build-pages",
+    "build:fonts": "gulp build:fonts",
+    "build:css:blocks": "gulp build:blocks-style",
+    "build:css:styles": "gulp build:main-style",
+    "build:css:vendor": "gulp build:vendor-style",
+    "build:js:blocks": "gulp build:blocks-script",
+    "build:js:vendor": "gulp build:vendors-script",
+    "bundle:css": "gulp bundle:style",
+    "bundle:js": "gulp bundle:script"
+  },
   "dependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
