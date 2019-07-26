@@ -8,9 +8,9 @@ html(lang='en')
 
         title #{title}
 
-        link(href='css/bundle.min.css')
+        link(href='css/bundle.min.css' rel='stylesheet')
     body
-        div(id='root' class="page page_" + pageName)
+        div(class="page page_" + pageName)
             block content
 
         script(src='js/bundle.min.js')
