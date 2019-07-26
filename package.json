@@ -10,6 +10,7 @@
     "start": "gulp",
     "build:pages": "gulp build-pages",
     "build:fonts": "gulp build:fonts",
+    "build:smart-grid": "gulp build:smart-grid",
     "build:css:blocks": "gulp build:blocks-style",
     "build:css:styles": "gulp build:main-style",
     "build:css:vendor": "gulp build:vendor-style",
