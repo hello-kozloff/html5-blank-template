@@ -226,9 +226,12 @@ gulp.task("bundle:script", () => {
     .pipe(gulp.dest("static/js"))
 });
 
+/**
+ * This task build fonts
+ */
 gulp.task("build:fonts", () => {
   return gulp.src("src/fonts/**/*")
-    .pipe(gulp.dest("static/fonts"))
+    .pipe(gulp.dest("static/fonts"));
 });
 
 /**
