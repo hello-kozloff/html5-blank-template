@@ -225,6 +225,11 @@ gulp.task("bundle:script", () => {
     .pipe(gulp.dest("static/js"))
 });
 
+gulp.task("build:fonts", () => {
+  return gulp.src("src/fonts/**/*")
+    .pipe(gulp.dest("static/fonts"))
+});
+
 /**
  * This task watch in files
  */
@@ -236,4 +241,4 @@ gulp.task("watch", () => {
   gulp.watch("src/pages/**/*.pug", gulp.series("build-pages"));
 });
 
-gulp.task("default", gulp.series("build-pages", ...buildingStyles, ...buildingScripts, "watch"));
+gulp.task("default", gulp.series("build-pages", "build:fonts", ...buildingStyles, ...buildingScripts, "watch"));
