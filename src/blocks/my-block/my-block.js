@@ -1,1 +1,0 @@
-$(document).ready(() => { /* my-block */ });
