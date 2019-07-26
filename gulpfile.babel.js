@@ -280,6 +280,17 @@ gulp.task("build:images", () => {
 });
 
 /**
+ * This task build production
+ */
+gulp.task("build:production", () => {
+  gulp.src("static/*.html").pipe(gulp.dest("build"));
+  gulp.src("static/css/bundle.min.css").pipe(gulp.dest("build/css"));
+  gulp.src("static/js/bundle.min.js").pipe(gulp.dest("build/js"));
+  gulp.src("static/images/**/*").pipe(gulp.dest("build/images"));
+  gulp.src("static/fonts/**/*").pipe(gulp.dest("build/fonts"));
+});
+
+/**
  * This task watch in files
  */
 gulp.task("watch", () => {
