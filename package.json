@@ -8,8 +8,10 @@
   "license": "MIT",
   "scripts": {
     "start": "gulp",
+    "build": "gulp build:production",
     "build:pages": "gulp build-pages",
     "build:fonts": "gulp build:fonts",
+    "build:images": "gulp build:images",
     "build:smart-grid": "gulp build:smart-grid",
     "build:css:blocks": "gulp build:blocks-style",
     "build:css:styles": "gulp build:main-style",
