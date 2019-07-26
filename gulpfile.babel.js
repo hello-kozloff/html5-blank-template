@@ -12,6 +12,7 @@ import cleanCss from "gulp-clean-css";
 import autoprefixer from "gulp-autoprefixer";
 import babel from "gulp-babel";
 import uglify from "gulp-uglify";
+import smartGrid from "smart-grid";
 
 const buildingStyles = [
   "build:blocks-style",
@@ -228,6 +229,41 @@ gulp.task("bundle:script", () => {
 gulp.task("build:fonts", () => {
   return gulp.src("src/fonts/**/*")
     .pipe(gulp.dest("static/fonts"))
+});
+
+/**
+ * This task build smart-grid
+ */
+gulp.task("build:smart-grid", () => {
+  const smart_grid_settings = {
+    outputStyle: "sass",
+    columns: 12,
+    offset: "30px",
+    mobileFirst: false,
+    container: {
+      maxWidth: "1200px",
+      fields: "15px"
+    },
+    breakPoints: {
+      xl: {
+        width: '1200px'
+      },
+      lg: {
+        width: '992px'
+      },
+      md: {
+        width: '768px'
+      },
+      sm: {
+        width: '576px'
+      },
+      xs: {
+        width: '100%'
+      }
+    }
+  };
+
+  smartGrid("src/sass", smart_grid_settings);
 });
 
 /**
