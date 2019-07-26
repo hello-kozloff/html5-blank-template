@@ -13,6 +13,7 @@ import autoprefixer from "gulp-autoprefixer";
 import babel from "gulp-babel";
 import uglify from "gulp-uglify";
 import smartGrid from "smart-grid";
+import imagemin from "gulp-imagemin";
 
 const buildingStyles = [
   "build:blocks-style",
@@ -270,6 +271,15 @@ gulp.task("build:smart-grid", () => {
 });
 
 /**
+ * This task build images
+ */
+gulp.task("build:images", () => {
+  return gulp.src("src/images/**/*")
+    .pipe(imagemin())
+    .pipe(gulp.dest("static/images"));
+});
+
+/**
  * This task watch in files
  */
 gulp.task("watch", () => {
@@ -278,6 +288,7 @@ gulp.task("watch", () => {
   gulp.watch("src/blocks/**/*.pug", gulp.series("build-pages"));
   gulp.watch("src/sass/**/*.sass", gulp.series(buildingStyles));
   gulp.watch("src/pages/**/*.pug", gulp.series("build-pages"));
+  gulp.watch("src/images/**/*", gulp.series("build:images"));
 });
 
 gulp.task("default", gulp.series("build-pages", "build:fonts", ...buildingStyles, ...buildingScripts, "watch"));
