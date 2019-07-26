@@ -22,6 +22,7 @@ html5-blank-template
 ├── src
 │   ├── blocks
 │   ├── fonts
+│   ├── images
 │   ├── pages
 │   ├── sass
 ├── gulpfile.babel.js
@@ -38,6 +39,7 @@ html5-blank-template
 * Work ```src``` - All files in project:
     * BEM: ```src/blocks```
     * Fonts: ```src/fonts```
+    * Images: ```src/images```
     * Pages: ```src/pages```
     * Sass: ```src/sass```
 * Folder ```static``` - folder from which the local development server is launched (```yarn run```)
