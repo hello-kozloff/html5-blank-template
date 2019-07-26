@@ -42,4 +42,4 @@ html5-blank-template
 * Folder ```static``` - folder from which the local development server is launched (```yarn run```)
 
 ## How to use
-- If you want create new block - `gulp create --black example-block`
+- If you want create new block - `gulp create --block example-block`
