@@ -300,6 +300,7 @@ gulp.task("watch", () => {
   gulp.watch("src/sass/**/*.sass", gulp.series(buildingStyles));
   gulp.watch("src/pages/**/*.pug", gulp.series("build-pages"));
   gulp.watch("src/images/**/*", gulp.series("build:images"));
+  gulp.watch("src/fonts/**/*", gulp.series("build:fonts"));
 });
 
 gulp.task("default", gulp.series("build-pages", "build:fonts", ...buildingStyles, ...buildingScripts, "watch"));
