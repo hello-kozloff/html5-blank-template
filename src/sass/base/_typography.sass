@@ -1,0 +1,20 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+
+//## Roboto font
++font-face("Roboto", "../fonts/RobotoRegular/RobotoRegular")
++font-face("Roboto", "../fonts/RobotoBold/RobotoBold", bold)
+
+//## Font settings
+$font-color: $color-black
+$font-family: "Roboto", sans-serif
+$font-size: 16px
+$font-weight: normal
+$font-line-height: normal
+
+body
+  color: $font-color
+  font-family: $font-family
+  font-weight: $font-weight
+  font-size: $font-size
+  line-height: $font-line-height

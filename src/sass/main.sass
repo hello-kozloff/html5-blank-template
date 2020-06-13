@@ -1,16 +1,8 @@
-//
-// Main styles
-// --------------------------------------------------
+@import "./abstracts/variables"
+@import "./abstracts/mixins"
 
-@import "variables"
-@import "typography"
-@import "fonts"
+@import "./base/typography"
 
-body
-  margin: 0
-  padding: 0
+@import "./layout/grid"
 
-  color: $font-color
-  font-family: $font-family
-  font-size: $font-size
-  line-height: $font-line-height
+@import "./pages/landing"
