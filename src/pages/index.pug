@@ -1,11 +1,9 @@
 extends ./contains/default
 
-include ../blocks/button/button
-
 block vars
     - const title='Home'
     - const pageName='index'
 
 block content
-    +button('/home.html', 'primary', 'My button')
+    h1 Hello world!
 
