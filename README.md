@@ -12,6 +12,7 @@ Universal procurement project.
 ## Installation
 1. Install globally `yarn`
 2. Open folder in terminal and clone project - `git clone https://github.com/hello-kozloff/html5-blank-template.git`
+3. Clone bemto in to core - `cd src && mkdir core && cd core && git clone git://github.com/kizu/bemto.git .`
 3. After use clone - `yarn install`
 
 ## File structure
