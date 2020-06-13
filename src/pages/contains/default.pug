@@ -1,16 +1,19 @@
+include ../../core/bemto
+block settings
+
 doctype html
-html(lang='en')
-    block vars
+html(lang=lang)
     head
-        meta(charset='UTF-8')
-        meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(http-equiv='X-UA-Compatible' content='ie=edge')
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
 
-        title #{title}
+        title= title
 
-        link(href='css/bundle.min.css' rel='stylesheet')
+        link(href="css/bundle.min.css", rel="stylesheet")
+
     body
-        div(class="page page_" + pageName)
+        +b("div")(class=`page _layout_${layout}`)
             block content
 
-        script(src='js/bundle.min.js')
+        script(src="js/bundle.min.js")
