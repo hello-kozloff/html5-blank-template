@@ -238,7 +238,7 @@ gulp.task("build:fonts", () => {
 /**
  * This task build smart-grid
  */
-gulp.task("build:smart-grid", () => {
+gulp.task("build:smart-grid", (done) => {
   const smart_grid_settings = {
     outputStyle: "sass",
     columns: 12,
@@ -267,7 +267,8 @@ gulp.task("build:smart-grid", () => {
     }
   };
 
-  smartGrid("src/sass", smart_grid_settings);
+  smartGrid("src/sass/layout", smart_grid_settings);
+  done();
 });
 
 /**
@@ -282,18 +283,20 @@ gulp.task("build:images", () => {
 /**
  * This task build production
  */
-gulp.task("build:production", () => {
+gulp.task("build:production", (done) => {
   gulp.src("static/*.html").pipe(gulp.dest("build"));
   gulp.src("static/css/bundle.min.css").pipe(gulp.dest("build/css"));
   gulp.src("static/js/bundle.min.js").pipe(gulp.dest("build/js"));
   gulp.src("static/images/**/*").pipe(gulp.dest("build/images"));
   gulp.src("static/fonts/**/*").pipe(gulp.dest("build/fonts"));
+
+  done();
 });
 
 /**
  * This task watch in files
  */
-gulp.task("watch", () => {
+gulp.task("watch", (done) => {
   gulp.watch("src/blocks/**/*.js", gulp.series(buildingScripts));
   gulp.watch("src/blocks/**/*.sass", gulp.series(buildingStyles));
   gulp.watch("src/blocks/**/*.pug", gulp.series("build-pages"));
@@ -301,6 +304,8 @@ gulp.task("watch", () => {
   gulp.watch("src/pages/**/*.pug", gulp.series("build-pages"));
   gulp.watch("src/images/**/*", gulp.series("build:images"));
   gulp.watch("src/fonts/**/*", gulp.series("build:fonts"));
+
+  done();
 });
 
 gulp.task("default", gulp.series("build-pages", "build:fonts", ...buildingStyles, ...buildingScripts, "watch"));
