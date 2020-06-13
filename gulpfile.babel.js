@@ -127,7 +127,7 @@ gulp.task("build:vendor-style", () => {
   };
 
   return gulp.src([
-    "node_modules/normalize.css/normalize.css"
+    "node_modules/reset.css/reset.css"
   ])
     .pipe(contact("vendor.css"))
     .pipe(gulp.dest("static/css"))
